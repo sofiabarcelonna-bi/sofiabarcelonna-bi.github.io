@@ -1,106 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Sofía Barcelonna</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio | Sofía Barcelonna</title>
+  <meta name="description" content="Portafolio profesional de Sofía Barcelonna: economista, analista de datos y BI. Proyectos, formación y contacto." />
   <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-      color: #333;
+    :root{
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #2e2e2e;
+      --muted: #6b7280;
+      --brand: #2c3e50;
+      --brand-2: #3e4f61;
+      --accent: #0f766e;
+      --shadow: 0 10px 20px rgba(0,0,0,.06);
+      --radius: 16px;
+      --maxw: 1050px;
     }
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;line-height:1.45}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    /* Header / Hero */
+    .hero{
+      background: linear-gradient(180deg, var(--brand) 0%, var(--brand-2) 100%);
+      color:#fff;
+      padding: 48px 16px 32px;
+      text-align:center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .hero h1{margin:0;font-size: clamp(28px, 6vw, 44px);letter-spacing:.3px}
+    .hero p{margin:.6rem 0 12px;font-size: clamp(14px, 2.2vw, 18px);opacity:.95}
+    .btn{
+      display:inline-block;
+      background: var(--accent);
+      color:#fff;
+      padding:10px 18px;
+      border-radius: 12px;
+      font-weight:600;
+      transition: all .2s ease;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    nav {
-      background: #34495e;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      border-bottom: 2px solid #2c3e50;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-    }
+    .btn:hover{background:#115e59}
+    /* Nav */
+    .nav{position: sticky; top:0; z-index:10; background: var(--brand-2); box-shadow: var(--shadow)}
+    .nav-inner{max-width: var(--maxw); margin: 0 auto; padding: 10px 14px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap}
+    .nav a{color:#e5ecf2; font-weight:700; padding:8px 10px; border-radius:10px}
+    .nav a:hover{background:rgba(255,255,255,.08)}
+    /* Sections */
+    section{max-width: var(--maxw); margin: 24px auto; padding: 0 16px}
+    h2{font-size: clamp(20px, 3vw, 26px); margin: 18px 0 12px; color: var(--brand); border-bottom: 2px solid #e5e7eb; padding-bottom: 6px}
+    .lead{font-size: 16px; color: var(--muted)}
+    /* Cards */
+    .grid{display:grid; gap:16px}
+    @media (min-width: 720px){ .grid{grid-template-columns: repeat(3,1fr)} }
+    .card{background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding:18px; display:flex; flex-direction:column; gap:10px}
+    .card h3{margin:.2rem 0 .2rem; font-size:18px}
+    .badge{display:inline-block; padding:4px 10px; border-radius:999px; background:#e8eef3; color:#34495e; font-size:12px; margin-right:6px}
+    /* Contact */
+    .contact-list{list-style:none; padding:0; margin:0}
+    .contact-list li{margin:8px 0}
+    /* Footer */
+    footer{margin-top: 36px; background:#e9eef2; color:#485563; text-align:center; padding:18px}
   </style>
 </head>
 <body>
-  <header>
+
+  <!-- INICIO -->
+  <header class="hero" id="inicio">
     <h1>Sofía Barcelonna</h1>
-    <p>Economista | Analista de Datos | Business Intelligence</p>
+    <p>Licenciada en Economía Empresarial | Máster en Gestión y Análisis de Datos | Business Intelligence</p>
+    <a href="cv.pdf" class="btn" target="_blank">📄 Descargar CV</a>
   </header>
 
-  <nav>
-    <a href="#cv">Currículum</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#contacto">Contacto</a>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#formacion">Formación académica y docencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
   </nav>
 
-  <section id="cv">
-    <h2>Currículum</h2>
-    <p>Puedes <a href="cv.pdf" target="_blank">descargar mi CV en PDF</a>.</p>
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+  <h2>Sobre mí</h2>
+  <p class="lead">
+    Licenciada en Economía Empresarial, con una marcada orientación hacia el 
+    análisis cuantitativo aplicado a la gestión. Actualmente cursando una Maestría 
+    en Gestión y Análisis de Datos, lo que refuerza mi formación en metodologías estadísticas, 
+    econometría y técnicas avanzadas de análisis.
+  </p>
+  <p class="lead">
+    Mi perfil combina el interés académico y práctico por la matemática y la estadística con 
+    habilidades de organización, planificación y aprendizaje autónomo, lo que me permite abordar 
+    proyectos con rigurosidad metodológica y eficiencia en la ejecución. Poseo dominio de herramientas 
+    como Power BI, Tableau, SQL, R y Python, orientadas a la construcción de tableros de control, análisis de 
+    eficiencia y desarrollo de modelos predictivos.
+  </p>
+  <p class="lead">
+    Cuento con un manejo avanzado del idioma inglés, lo que me permite desenvolverme en 
+    diferentes entornos profesionales y colaborar en proyectos que requieren interacción 
+    con equipos diversos. Mi objetivo es aportar soluciones basadas en datos que impulsen la 
+    productividad, optimicen procesos y fortalezcan la toma de decisiones estratégicas en 
+    organizaciones del ámbito privado y público.
+  </p>
+</section>
+
+  <!-- FORMACIÓN ACADÉMICA -->
+  <section id="formacion">
+    <h2>Formación académica y docencia</h2>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3>Licenciatura en Economía Empresarial</h3>
+      <span class="badge">Grado</span>
+      <p class="lead">Universidad Nacional del Centro (UNICEN). Enfoque en métodos cuantitativos, economía aplicada y finanzas.</p>
+      <p>Trabajo final en curso: eficiencia y productividad en producción de soja (DEA + Tobit).</p>
+      <p><a href="cv.pdf" target="_blank">📄 Ver CV completo en PDF</a></p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3>Posgrado / Maestría (en curso)</h3>
+      <span class="badge">Posgrado</span>
+      <p class="lead">Gestión y Análisis de Datos. Metodologías estadísticas, visualización y toma de decisiones basada en evidencia.</p>
+    </div>
+
+    <div class="card">
+      <h3>Docencia y formación continua</h3>
+      <span class="badge">Docencia</span><span class="badge">Capacitación</span>
+      <ul style="margin:0 0 0 18px">
+        <li>Clases y talleres de análisis de datos aplicados a negocios.</li>
+        <li>Diseño de material didáctico y guías de Power BI para ejecutivos.</li>
+        <li>Mentorías individuales para adopción de BI y cultura data-driven.</li>
+      </ul>
+    </div>
   </section>
 
+  <!-- PROYECTOS -->
   <section id="proyectos">
     <h2>Proyectos</h2>
-    <ul>
-      <li><a href="https://github.com/sofiabarcelonna-bi/PowerBI" target="_blank">Dashboards en Power BI</a></li>
-      <li><a href="https://github.com/sofiabarcelonna-bi/Python" target="_blank">Scripts en Python para análisis estadístico</a></li>
-      <li><a href="https://github.com/sofiabarcelonna-bi/SQL" target="_blank">Modelado de bases de datos en SQL</a></li>
+    <p class="lead">Selección de trabajos y repositorios públicos. Solicitar casos adicionales bajo NDA.</p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Tableros de precios agro (Power BI)</h3>
+        <p>Análisis de series históricas (10+ años), estacionalidad, spreads y basis. Integración con SIO Granos, Matba Rofex, BCR y más.</p>
+        <div>
+          <span class="badge">Power BI</span>
+          <span class="badge">Econometría</span>
+          <span class="badge">ETL</span>
+        </div>
+        <p><a href="https://github.com/sofiabarcelonna-bi/PowerBI" target="_blank">Repositorio / demo</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Modelos econométricos en Python</h3>
+        <p>Scripts reproducibles para DEA, regresión Tobit y simulación estadística. Reportes automatizados.</p>
+        <div>
+          <span class="badge">Python</span>
+          <span class="badge">Pandas</span>
+          <span class="badge">Stats</span>
+        </div>
+        <p><a href="https://github.com/sofiabarcelonna-bi/Python" target="_blank">Repositorio</a></p>
+      </article>
+
+      <article class="card">
+        <h3>SQL | Modelado y calidad de datos</h3>
+        <p>Normalización, claves foráneas, integridad referencial, auditorías y documentación técnica para data marts.</p>
+        <div>
+          <span class="badge">SQL</span>
+          <span class="badge">Data Quality</span>
+          <span class="badge">Modelado</span>
+        </div>
+        <p><a href="https://github.com/sofiabarcelonna-bi/SQL" target="_blank">Repositorio</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <ul class="contact-list">
+      <li>📧 <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></li>
+      <li>🔗 <a href="https://www.linkedin.com/in/sofiabarcelonna" target="_blank">LinkedIn</a></li>
+      <li>📍 Argentina | Disponibilidad remota y presencial</li>
     </ul>
   </section>
 
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>Soy economista con experiencia en análisis de datos, eficiencia productiva y Business Intelligence. 
-       Combino herramientas de visualización (Power BI), análisis econométrico (Python, R) y gestión de bases de datos (SQL) 
-       para transformar información en decisiones estratégicas.</p>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>Email: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/sofiabarcelonna" target="_blank">linkedin.com/in/sofiabarcelonna</a></p>
-  </section>
-
   <footer>
-    <p>&copy; 2025 Sofía Barcelonna - Portafolio Profesional </p>
+    © 2025 Sofía Barcelonna — Portafolio profesional
   </footer>
+
+  <!-- Suaviza scroll -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  </script>
 </body>
 </html>
