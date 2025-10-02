@@ -152,27 +152,99 @@
 </section>
 
  <!-- PROYECTOS -->
-<section id="informes">
-  <h2>Informes y Publicaciones</h2>
+<section id="proyectos">
+  <h2>Proyectos</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn prev">←</button>
+    <div class="carousel">
+      
+      <div class="card">
+        <h3>Tesis de grado</h3>
+        <p>
+          <strong>Análisis integral de la eficiencia y productividad en la producción de soja</strong>: 
+          estudio empírico con DEA, regresión Tobit y enfoque de analítica aplicada.
+        </p>
+        <a href="TFG" target="_blank">📄 Ver tesis (PDF)</a>
+      </div>
 
-  <div class="card" style="margin-bottom:12px">
-    <h3>Tesis de grado</h3>
-    <p>
-      <strong>Análisis integral de la eficiencia y productividad en la producción de soja</strong>: 
-      estudio empírico con DEA, regresión Tobit y enfoque de analítica aplicada.
-    </p>
-    <iframe src="TFG" width="100%" height="500px" style="border:1px solid #ccc; border-radius:8px;"></iframe>
-  </div>
+      <div class="card">
+        <h3>Informe académico</h3>
+        <p>
+          <strong>Análisis de precios bursátiles mediante cadenas de Markov</strong>: 
+          modelización estocástica y simulación aplicada.
+        </p>
+        <a href="Cadenas_Markov.pdf" target="_blank">📄 Ver informe (PDF)</a>
+      </div>
 
-  <div class="card">
-    <h3>Informe académico</h3>
-    <p>
-      <strong>Análisis de precios bursátiles mediante cadenas de Markov</strong>: 
-      modelización estocástica y simulación aplicada.
-    </p>
-    <iframe src="Cadenas_Markov.pdf" width="100%" height="500px" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+    </div>
+    <button class="carousel-btn next">→</button>
   </div>
 </section>
+
+<style>
+/* --- Carrusel --- */
+.carousel-container {
+  position: relative;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 40px; /* margen lateral elegante */
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* oculta scrollbar en Firefox */
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+.carousel .card {
+  min-width: 280px;
+  flex: 0 0 auto;
+}
+
+.carousel-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-btn:hover {
+  background: var(--accent);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .carousel-container {
+    padding: 0 16px;
+  }
+  .carousel-btn {
+    display: none; /* en mobile se scrollea con el dedo */
+  }
+}
+</style>
+
+<script>
+  // Carrusel con flechas
+  const carousels = document.querySelectorAll('.carousel-container');
+  carousels.forEach(container => {
+    const carousel = container.querySelector('.carousel');
+    container.querySelector('.prev').addEventListener('click', () => {
+      carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    container.querySelector('.next').addEventListener('click', () => {
+      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  });
+</script>
 
 
   <!-- CONTACTO -->
