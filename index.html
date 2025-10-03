@@ -153,50 +153,65 @@
 
  <!-- PROYECTOS -->
 <section id="proyectos">
-<h2>Proyectos</h2>
+  <h2>Proyectos</h2>
 
+  <div class="carousel-container projects">
+    <button class="carousel-btn prev" aria-label="Anterior">←</button>
 
-<div class="carousel-container projects">
-<button class="carousel-btn prev" aria-label="Anterior">←</button>
+    <div class="carousel" aria-live="polite">
 
+      <!-- PROYECTO 1: Tesis de grado -->
+      <article class="card" tabindex="0">
+        <div class="preview">
+          <img src="previews/tfg-soja.png" alt="Previsualización de la tesis sobre eficiencia en soja" loading="lazy" onerror="this.src='previews/placeholder.png'" />
+        </div>
+        <h3>Tesis de grado</h3>
+        <p class="summary">
+          <strong>Análisis integral de la eficiencia y productividad en la producción de soja</strong>.
+          Enfoque cuantitativo con DEA (eficiencia técnica) y regresión Tobit (determinantes),
+          basado en encuestas a productores del partido de Tandil.
+        </p>
 
-<div class="carousel" aria-live="polite">
-<!-- PROYECTO 1: Tesis de grado -->
-<article class="card" tabindex="0">
-<div class="preview">
-<img src="previews/tfg-soja.png" alt="Previsualización de la tesis sobre eficiencia en soja" loading="lazy" onerror="this.src='previews/placeholder.png'" />
-</div>
-<h3>Tesis de grado</h3>
-<p class="summary">
-<strong>Análisis integral de la eficiencia y productividad en la producción de soja</strong>.
-Enfoque cuantitativo con DEA (eficiencia técnica) y regresión Tobit (determinantes),
-basado en encuestas a productores del partido de Tandil.
-</p>
-<a class="btn" href="TFG" target="_blank" rel="noopener">📄 Ver PDF</a>
-</article>
+        <!-- Visor embebido del PDF (sin descarga) -->
+        <div class="pdf-preview">
+          <object class="pdf-frame"
+                  data="TFG.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                  type="application/pdf"
+                  width="100%" height="520">
+            <p>No se pudo mostrar el PDF.
+              <!-- Sin enlace de descarga para no incentivar la bajada -->
+            </p>
+          </object>
+        </div>
+      </article>
 
+      <!-- PROYECTO 2: Cadenas de Markov -->
+      <article class="card" tabindex="0">
+        <div class="preview">
+          <img src="previews/markov.png" alt="Previsualización del informe de cadenas de Markov" loading="lazy" onerror="this.src='previews/placeholder.png'" />
+        </div>
+        <h3>Informe académico</h3>
+        <p class="summary">
+          <strong>Precios bursátiles mediante cadenas de Markov</strong>.
+          Modelización de transición de estados de mercado y simulación para evaluar persistencia y cambios de régimen.
+        </p>
 
-<!-- PROYECTO 2: Cadenas de Markov -->
-<article class="card" tabindex="0">
-<div class="preview">
-<img src="previews/markov.png" alt="Previsualización del informe de cadenas de Markov" loading="lazy" onerror="this.src='previews/placeholder.png'" />
-</div>
-<h3>Informe académico</h3>
-<p class="summary">
-<strong>Precios bursátiles mediante cadenas de Markov</strong>.
-Modelización de transición de estados de mercado y simulación para evaluar persistencia y cambios de régimen.
-</p>
-<a class="btn" href="Cadenas_Markov.pdf" target="_blank" rel="noopener">📄 Ver PDF</a>
-</article>
+        <!-- Visor embebido del PDF (sin descarga) -->
+        <div class="pdf-preview">
+          <object class="pdf-frame"
+                  data="Cadenas_Markov.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                  type="application/pdf"
+                  width="100%" height="520">
+            <p>No se pudo mostrar el PDF.</p>
+          </object>
+        </div>
+      </article>
 
+    </div>
 
-</div>
-
-
-<button class="carousel-btn next" aria-label="Siguiente">→</button>
-</div>
+    <button class="carousel-btn next" aria-label="Siguiente">→</button>
+  </div>
 </section>
-
 
 <style>
 /* Estilos mínimos para ampliar espacio y agregar previsualización */
@@ -204,26 +219,29 @@ Modelización de transición de estados de mercado y simulación para evaluar pe
 .carousel .card { min-width: 420px; }
 @media (max-width: 600px){ .carousel .card { min-width: 320px; } }
 
-
 .card .preview { width:100%; aspect-ratio: 16/9; overflow:hidden; border-radius: 12px; background:#f1f5f9; display:grid; place-items:center; }
 .card .preview img { width:100%; height:100%; object-fit: cover; display:block; }
 .card .summary { color: var(--muted); margin: 0 0 8px 0; }
-</style>
 
+/* Marco del PDF */
+.pdf-preview { margin-top:10px; background:#eef2f6; border-radius:12px; overflow:hidden; box-shadow: var(--shadow); }
+.pdf-frame { display:block; border:0; width:100%; height:520px; }
+</style>
 
 <script>
 // Mantiene tu carrusel, solo ajusta el desplazamiento para tarjetas más anchas
 (function(){
-const containers = document.querySelectorAll('.carousel-container.projects');
-containers.forEach(container => {
-const carousel = container.querySelector('.carousel');
-const prev = container.querySelector('.prev');
-const next = container.querySelector('.next');
-if(prev) prev.addEventListener('click', () => carousel.scrollBy({ left: -440, behavior: 'smooth' }));
-if(next) next.addEventListener('click', () => carousel.scrollBy({ left: 440, behavior: 'smooth' }));
-});
+  const containers = document.querySelectorAll('.carousel-container.projects');
+  containers.forEach(container => {
+    const carousel = container.querySelector('.carousel');
+    const prev = container.querySelector('.prev');
+    const next = container.querySelector('.next');
+    if(prev) prev.addEventListener('click', () => carousel.scrollBy({ left: -440, behavior: 'smooth' }));
+    if(next) next.addEventListener('click', () => carousel.scrollBy({ left: 440, behavior: 'smooth' }));
+  });
 })();
 </script>
+
 
 
   <!-- CONTACTO -->
